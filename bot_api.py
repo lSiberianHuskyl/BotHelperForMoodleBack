@@ -61,10 +61,12 @@ def find_answer(keywords):
 def root():
     return "API работает! 🚀"
 
-@app.route('/chat', methods=['POST'])
+@app.route('/chat', methods=['POST', 'OPTIONS'])
 def chat():
     data = request.json
     message = data.get('message', '')
     keywords = message.lower().split()
     answer = find_answer(keywords)
+        if request.method == 'OPTIONS':
+            return '', 204  # отвечает "ОК" на preflight
     return jsonify({'reply': answer})
