@@ -9,10 +9,11 @@ app = Flask(__name__)
 CORS(app)
 
 db_config = {
-    'host': '127.0.0.1',
-    'user': 'root',
-    'password': 'DiplomPetProject8)',
-    'database': 'faq_db'
+    'host': 'dpg-d1bq9bodl3ps73eubtc0-a',
+    'port': '5432',
+    'user': 'faq_db_s4sm_user',
+    'password': 'jXmGHOpnySj3B6lzvp4WvJ461g7efUV6',
+    'database': 'faq_db_s4sm'
 }
 def ask_neural_network(question):
     try:
