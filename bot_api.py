@@ -63,10 +63,10 @@ def root():
 
 @app.route('/chat', methods=['POST', 'OPTIONS'])
 def chat():
+    if request.method == 'OPTIONS':
+        return '', 204  # отвечает "ОК" на preflight
     data = request.json
     message = data.get('message', '')
     keywords = message.lower().split()
     answer = find_answer(keywords)
-        if request.method == 'OPTIONS':
-            return '', 204  # отвечает "ОК" на preflight
     return jsonify({'reply': answer})
